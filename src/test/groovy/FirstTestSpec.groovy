@@ -7,8 +7,10 @@ import java.time.Year
 class FirstTestSpec extends GebReportingSpec {
 
     def "Registering new username should be successful"() {
+
         given: "user is on main G2A ID page"
         def loginPage = to new IdLoginPage()
+
         when: "user dismisses cookie modal"
         loginPage.consentLaterButton.click()
         driver.navigate().refresh()
@@ -34,11 +36,11 @@ class FirstTestSpec extends GebReportingSpec {
     }
 
     def "Copyright year displayed in the footer should match current one"() {
+
         given: "user is on main G2A ID page"
         def loginPage = to new IdLoginPage()
         when: "user dismisses cookie modal"
-//        loginPage.consentLaterButton.click()
-//        driver.navigate().refresh()
+
         def elementFoo = loginPage.footerModule.footer
         interact {
             moveToElement(elementFoo)
@@ -49,11 +51,9 @@ class FirstTestSpec extends GebReportingSpec {
     }
 
     def "Registering new username with invalid credentials should fail"() {
+
         given: "user is on main G2A ID page"
         def loginPage = to new IdLoginPage()
-//        when: "user dismisses cookie modal"
-//        loginPage.consentLaterButton.click()
-//        driver.navigate().refresh()
 
         when: "clicks on register button"
         loginPage.registerButton.click()
